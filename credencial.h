@@ -18,8 +18,9 @@ class Persona{
 		string campus;
 
 	public: // Metodos
+	    Persona();
 		Persona(string, string, string, string, string); //Constructor
-		virtual void leer_info(); // Se aplica polimorfismos
+		virtual string leer_info(); // Se aplica polimorfismos
 		virtual void imprimir_info() = 0;
 		virtual void status() = 0; // Se aplica polimorfismos
 };
@@ -33,7 +34,7 @@ Persona::Persona(string esc, string nom, string cumple, string ma, string camp){
     campus = camp;
 }
 
-void Persona::leer_info(){
+string Persona::leer_info(){
     cout<<"\nEscuela: "<<escuela<<endl;
     cout<<"Nombre: "<<nombre<<endl;
     cout<<"Matricula: "<<matricula<<endl;
@@ -48,7 +49,7 @@ class Estudiante: public Persona{
 
     public: // Metodos
         Estudiante(string,string,string,string,string,string); //Constructor
-        void leer_info(); // Estudiante sobreescritura
+        string leer_info(); // Estudiante sobreescritura
         void imprimir_info(); // Estudiante sobreescritura
         void status() {cout<<"\nStatus: ALUMNO";}
 };
@@ -58,7 +59,7 @@ Estudiante::Estudiante(string esc, string nom, string cumple, string ma, string 
     carrera = car;
 }
 
-void Estudiante::leer_info(){ // Estudiante sobreescritura
+string Estudiante::leer_info(){ // Estudiante sobreescritura
     cout<<"\nEscuela: "<<escuela<<endl;
     cout<<"Nombre: "<<nombre<<endl;
     cout<<"Matricula: "<<matricula<<endl;
@@ -95,7 +96,7 @@ class Maestro: public Persona{
 
     public: // Metodos
         Maestro(string,string,string,string,string,string); //Constructor
-        void leer_info(); // Maestro sobreescritura
+        string leer_info(); // Maestro sobreescritura
         void imprimir_info(); // Maestro sobreescritura
         void status() {cout<<"\nStatus: PROFESOR";}
 };
@@ -105,7 +106,7 @@ Maestro::Maestro(string esc, string nom, string cumple, string ma, string camp, 
     rango = r;
 }
 
-void Maestro::leer_info(){ // Maestro sobreescritura
+string Maestro::leer_info(){ // Maestro sobreescritura
     cout<<"\nEscuela: "<<escuela<<endl;
     cout<<"Nombre: "<<nombre<<endl;
     cout<<"Matricula: "<<matricula<<endl;
@@ -144,18 +145,18 @@ class Empleado: public Persona{
 
     public: // Metodos
         Empleado(string,string,string,string,string,unsigned,unsigned); //Constructor
-        void leer_info(); // Empleado sobreescritura
+        string leer_info(); // Empleado sobreescritura
         void imprimir_info(); // Empleado sobreescritura
         void status() {cout<<"\nStatus: EMPLEADO";}
 };
 
 //Constructor de Empleado
-Empleado::Empleado(string esc, string nom, string cumple, string ma, string camp, unsigned _n_ss, unsigned of): Persona(esc, nom, cumple, ma, camp){
-    n_ss = _n_ss;
+Empleado::Empleado(string esc, string nom, string cumple, string ma, string camp, unsigned nss, unsigned of): Persona(esc, nom, cumple, ma, camp){
+    n_ss = nss;
     oficina = of;
 }
 
-void Empleado::leer_info(){ // Empleado sobreescritura
+string Empleado::leer_info(){ // Empleado sobreescritura
     cout<<"\nEscuela: "<<escuela<<endl;
     cout<<"Nombre: "<<nombre<<endl;
     cout<<"Matricula: "<<matricula<<endl;
@@ -183,7 +184,6 @@ void Empleado::imprimir_info(){
     infoe<<"Fecha de nacimiento: "<<fecha_n<<endl;
     infoe<<"NSS: "<<n_ss<<endl;
     infoe<<"Oficina: "<<oficina<<endl;
-
 
     infoe.close();
 }
