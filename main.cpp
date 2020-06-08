@@ -1,12 +1,10 @@
 #include <iostream>
 #include "credencial.h"
-//#include "catalogo.h"
 
 using namespace std;
 
 int main(){
 
-    //Catalogo c;
     string r;
 
     cout<<"************************ Proyecto Integrador TC1030 ************************"<<endl;
@@ -25,30 +23,70 @@ int main(){
 
     if (r == "a" || r == "a)"){
         cout<<"Selecionaste Estudiantes"<<endl;
-        vector[0] = new Estudiante("ITESM","Oscar Delgadillo Ochoa","26/12/2001","A01705935","QRO","ICT");
+        string i,m,n,cr,c,f;
+        cout<<"\nEscuela: ";
+        cin>>i;
+        cout<<"Matricula: ";
+        cin>>m;
+        cout<<"Nombre (separado por guiones): ";
+        cin>>n;
+        cout<<"Carrera: ";
+        cin>>cr;
+        cout<<"Campus: ";
+        cin>>c;
+        cout<<"Fecha de nacimiento (dd/mm/aaaa): ";
+        cin>>f;
+        vector[0] = new Estudiante(i,m,n,c,f,cr);
         vector[0]->status();
-        vector[0]->leer_info();
         vector[0]->imprimir_info();
     }
 
     else if (r == "b" || r == "b)"){
         cout<<"Selecionaste Maestros"<<endl;
-        vector[1] = new Maestro("ITESM","Benjamin Valdez","19/03/1986","M00156746","QRO","Planta");
+        string i,m,n,c,f,r;
+        cout<<"\nEscuela: ";
+        cin>>i;
+        cout<<"Matricula: ";
+        cin>>m;
+        cout<<"Nombre (separado por guiones): ";
+        cin>>n;
+        cout<<"Campus: ";
+        cin>>c;
+        cout<<"Fecha de nacimiento (dd/mm/aaaa): ";
+        cin>>f;
+        cout<<"Rango (Planta o Catedra): ";
+        cin>>r;
+        vector[1] = new Maestro(i,m,n,c,f,r);
         vector[1]->status();
-        vector[1]->leer_info();
         vector[1]->imprimir_info();
     }
 
     else if (r == "c" || r == "c)"){
         cout<<"Selecionaste Empleados"<<endl;
-        vector[2] = new Empleado("ITESM","Luisa Mendez","02/08/1990","E01696078","CCM",72795608040,118);
+        string i,m,n,c,f;
+        unsigned ns,of;
+        cout<<"\nEscuela: ";
+        cin>>i;
+        cout<<"Matricula: ";
+        cin>>m;
+        cout<<"Nombre (separado por guiones): ";
+        cin>>n;
+        cout<<"Campus: ";
+        cin>>c;
+        cout<<"Fecha de nacimiento (dd/mm/aaaa): ";
+        cin>>f;
+        cout<<"Numero de seguridad social: ";
+        cin>>ns;
+        cout<<"Oficina: ";
+        cin>>of;
+        vector[2] = new Empleado(i,m,n,c,f,ns,of);
         vector[2]->status();
-        vector[2]->leer_info();
         vector[2]->imprimir_info();
     }
 
     else{
-
+        cout<<"Esa opcion no esta disponible"<<endl;
     }
     return 0;
+
 }
