@@ -1,7 +1,18 @@
 #include <iostream>
+#include <stdlib.h>
+#include <fstream>
 #include "credencial.h"
 
 using namespace std;
+
+/*
+Proyecto Generador de tarjetas
+Oscar E. Delgadillo ochoa
+A01705935
+Proyecto integrador para la clase TC1030 (Programación Orientado a
+Objetos). Es un programa que te permite almacenar información para imprimir
+en un archivo .txt
+*/
 
 int main(){
 
@@ -24,12 +35,18 @@ int main(){
     if (r == "a" || r == "a)"){
         cout<<"Selecionaste Estudiantes"<<endl;
         string i,m,n,cr,c,f;
+        do{
+		fflush(stdin); // Realiza una limpieza del buffer de entrada
         cout<<"\nEscuela: ";
-        cin>>i;
+		getline(cin,i);
+        }while(i != i);
         cout<<"Matricula: ";
         cin>>m;
-        cout<<"Nombre (separado por guiones): ";
-        cin>>n;
+        do{
+        fflush(stdin); // Realiza una limpieza del buffer de entrada
+		cout<<"Nombre completo: ";
+		getline(cin,n);
+        }while(n != n);
         cout<<"Carrera: ";
         cin>>cr;
         cout<<"Campus: ";
@@ -44,12 +61,18 @@ int main(){
     else if (r == "b" || r == "b)"){
         cout<<"Selecionaste Maestros"<<endl;
         string i,m,n,c,f,r;
+        do{
+		fflush(stdin); // Realiza una limpieza del buffer de entrada
         cout<<"\nEscuela: ";
-        cin>>i;
+		getline(cin,i);
+        }while(i != i);
         cout<<"Matricula: ";
         cin>>m;
-        cout<<"Nombre (separado por guiones): ";
-        cin>>n;
+        do{
+        fflush(stdin); // Realiza una limpieza del buffer de entrada
+		cout<<"Nombre completo: ";
+		getline(cin,n);
+        }while(n != n);
         cout<<"Campus: ";
         cin>>c;
         cout<<"Fecha de nacimiento (dd/mm/aaaa): ";
@@ -65,12 +88,18 @@ int main(){
         cout<<"Selecionaste Empleados"<<endl;
         string i,m,n,c,f;
         unsigned ns,of;
+        do{
+		fflush(stdin); // Realiza una limpieza del buffer de entrada
         cout<<"\nEscuela: ";
-        cin>>i;
+		getline(cin,i);
+        }while(i != i);
         cout<<"Matricula: ";
         cin>>m;
-        cout<<"Nombre (separado por guiones): ";
-        cin>>n;
+        do{
+        fflush(stdin); // Realiza una limpieza del buffer de entrada
+		cout<<"Nombre completo: ";
+		getline(cin,n);
+        }while(n != n);
         cout<<"Campus: ";
         cin>>c;
         cout<<"Fecha de nacimiento (dd/mm/aaaa): ";
@@ -87,6 +116,12 @@ int main(){
     else{
         cout<<"Esa opcion no esta disponible"<<endl;
     }
+
+    // Limpiar la memoria
+    delete vector[0];
+    delete vector[1];
+    delete vector[2];
+
     return 0;
 
 }

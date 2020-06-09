@@ -7,6 +7,7 @@
 
 using namespace std;
 
+// Declaramos clase padre Persona
 class Persona{
 	protected: // Atributos
 		string escuela;
@@ -15,16 +16,14 @@ class Persona{
 		string campus;
 		string fecha_n;
 
-
-
 	public: // Metodos
-	    Persona();
-		Persona(string, string, string, string, string); //Constructor
-		virtual void imprimir_info() = 0;
+	    Persona(): escuela(""),matricula(""),nombre(""),campus(""),fecha_n(""){}; // Constructor por default
+		Persona(string, string, string, string, string);
+		virtual void imprimir_info() = 0; // Constructor
 		virtual void status() = 0; // Se aplica polimorfismos
 };
 
-//Constructor de Persona
+// Constructor de Persona
 Persona::Persona(string esc, string ma, string nom, string camp, string cumple){
     escuela = esc;
     matricula = ma;
@@ -33,22 +32,28 @@ Persona::Persona(string esc, string ma, string nom, string camp, string cumple){
     fecha_n = cumple;
 }
 
+
 /////////////////////////////////// _Clase Hija_ ///////////////////////////////////////////////////////
+// Declaramos Estudiante clase hija de Persona
 class Estudiante: public Persona{
     private: // Atributos
         string carrera;
 
     public: // Metodos
-        Estudiante(string,string,string,string,string,string); //Constructor
+        Estudiante(string,string,string,string,string,string);
         void imprimir_info(); // Estudiante sobreescritura
-        void status() {cout<<"Status: ALUMNO";}
+        void status() {cout<<"Status: ALUMNO\n";}
 };
 
-//Constructor de Estudiante
+// Constructor de Estudiante
 Estudiante::Estudiante(string esc, string nom, string cumple, string ma, string camp, string car): Persona(esc, nom, cumple, ma, camp){
     carrera = car;
 }
 
+/*
+La función imprimir_info() obtiene la información de las variables
+y genera un archivo .txt
+*/
 void Estudiante::imprimir_info(){ // Estudiante sobreescritura
     ofstream infoa;
     infoa.open("Infoa.txt",ios::out);
@@ -70,22 +75,28 @@ void Estudiante::imprimir_info(){ // Estudiante sobreescritura
     infoa.close();
 }
 
+
 /////////////////////////////// _Clase Hija_ ///////////////////////////////////////////
+// Declaramos Maestro clase hija de Persona
 class Maestro: public Persona{
     private: // Atributos
         string rango;
 
     public: // Metodos
-        Maestro(string,string,string,string,string,string); //Constructor
+        Maestro(string,string,string,string,string,string); // Constructor
         void imprimir_info(); // Maestro sobreescritura
-        void status() {cout<<"Status: PROFESOR";}
+        void status() {cout<<"Status: PROFESOR\n";}
 };
 
-//Constructor de Maestro
+// Constructor de Maestro
 Maestro::Maestro(string esc, string nom, string cumple, string ma, string camp, string r): Persona(esc, nom, cumple, ma, camp){
     rango = r;
 }
 
+/*
+La función imprimir_info() obtiene la información de las variables
+y genera un archivo .txt
+*/
 void Maestro::imprimir_info(){
     ofstream infom;
     infom.open("Infom.txt",ios::out);
@@ -109,23 +120,28 @@ void Maestro::imprimir_info(){
 
 
 /////////////////////////////// _Clase Hija_ ///////////////////////////////////////////
+// Declaramos Empleado clase hija de Persona
 class Empleado: public Persona{
     private: // Atributos
         unsigned n_ss;
         unsigned oficina;
 
     public: // Metodos
-        Empleado(string,string,string,string,string,unsigned,unsigned); //Constructor
+        Empleado(string,string,string,string,string,unsigned,unsigned); // Constructor
         void imprimir_info(); // Empleado sobreescritura
-        void status() {cout<<"Status: EMPLEADO";}
+        void status() {cout<<"Status: EMPLEADO\n";}
 };
 
-//Constructor de Empleado
+// Constructor de Empleado
 Empleado::Empleado(string esc, string nom, string cumple, string ma, string camp, unsigned nss, unsigned of): Persona(esc, nom, cumple, ma, camp){
     n_ss = nss;
     oficina = of;
 }
 
+/*
+La función imprimir_info() obtiene la información de las variables
+y genera un archivo .txt
+*/
 void Empleado::imprimir_info(){
     ofstream infoe;
     infoe.open("Infoe.txt",ios::out);
@@ -145,10 +161,7 @@ void Empleado::imprimir_info(){
     infoe<<"NSS: "<<n_ss<<endl;
     infoe<<"Oficina: "<<oficina<<endl;
 
-
     infoe.close();
 }
-
-
 
 #endif
