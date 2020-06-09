@@ -19,8 +19,6 @@ int main(){
     string r;
 
     cout<<"************************ Proyecto Integrador TC1030 ************************"<<endl;
-    cout<<"Oscar Enrique Delgadillo Ochoa"<<endl;
-    cout<<"A01705935"<<endl;
     cout<<"Este codigo va a imprimir informacion que se utiliza en credenciales"<<endl;
     cout<<"los tipos de credenciales que hay son: "<<endl;
     cout<<"a) Estudiantes"<<endl;

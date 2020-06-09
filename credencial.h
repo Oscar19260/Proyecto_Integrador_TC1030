@@ -51,8 +51,8 @@ Estudiante::Estudiante(string esc, string nom, string cumple, string ma, string 
 }
 
 /*
-La función imprimir_info() obtiene la información de las variables
-y genera un archivo .txt
+* La función imprimir_info() obtiene la información de las variables
+* y genera un archivo .txt donde plasma los datos
 */
 void Estudiante::imprimir_info(){ // Estudiante sobreescritura
     ofstream infoa;
@@ -94,8 +94,8 @@ Maestro::Maestro(string esc, string nom, string cumple, string ma, string camp, 
 }
 
 /*
-La función imprimir_info() obtiene la información de las variables
-y genera un archivo .txt
+* La función imprimir_info() obtiene la información de las variables
+* y genera un archivo .txt donde plasma los datos
 */
 void Maestro::imprimir_info(){
     ofstream infom;
@@ -139,8 +139,8 @@ Empleado::Empleado(string esc, string nom, string cumple, string ma, string camp
 }
 
 /*
-La función imprimir_info() obtiene la información de las variables
-y genera un archivo .txt
+* La función imprimir_info() obtiene la información de las variables
+* y genera un archivo .txt donde plasma los datos
 */
 void Empleado::imprimir_info(){
     ofstream infoe;
